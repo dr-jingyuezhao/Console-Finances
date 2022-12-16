@@ -94,7 +94,12 @@ var finances = [
 var totalMonths = 0;
 var totalNet = 0;
 var profitChange = 0; // profit change is calculated as month2 - month1
+var totalChange = 0;
 var avgChange = 0;
+
+// create a new empty array to hold all profit changes
+var allProfitChange = [];
+
 var greatestInDate;
 var greatestInProfit = 0;
 var greatestDeDate;
@@ -104,14 +109,22 @@ var greatestDeProfit = 0;
 // Your task is to write JavaScript code that analyzes the records to calculate each of the following:
 
 // The total number of months included in the dataset.
-
-// The net total amount of Profit/Losses over the entire period.
+var totalMonths = finances.length;
+// The net total amount of Profit/Losses over the entire period
+for (var i = 0; i < finances.length; i++) {
+    totalNet = totalNet + finances[i][1];
+  }
+//   console.log("Total: $" + totalNet);
 
 // The average of the changes in Profit/Losses over the entire period.
 
-// You will need to track what the total change in profits is from month to month and then find the average.
-
-// (Total/Number of months)
+// track what the total change in profits is from month to month 
+for (var i = 0; i < finances.length; i++) {
+    profitChange = finances[i++][1] - finances[i][1];
+    totalChange = totalChange + profitChange;
+  }
+// then find the average (totalChange/totalMonths-1)
+avgChange = totalChange / (totalMonths - 1)
 
 // The greatest increase in profits (date and amount) over the entire period.
 
@@ -136,7 +149,7 @@ console.log("Total Months: " + totalMonths);
 // display the total net profit
 console.log("Total: $" + totalNet);
 // display the average of the changes in Profit/Losses over the entire period: netTotal/totalMonths (only display 2 digits like xxxxx.xx)
-console.log("Average Change: $" + avgChange);
+console.log("Average Change: $" + avgChange.toFixed(2));
 // display the date and number of the greatest increase in profits
 console.log(
     "Greatest Increase in Profits: " +
