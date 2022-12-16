@@ -90,6 +90,14 @@ var finances = [
 // a dataset composed of arrays with two fields: Date and Profit/Losses.
 // To access an element of the multidimensional array, first use square brackets to access an element of the outer array that returns an inner array; and then use another square bracket to access the element of the inner array.
 
+// // test array push
+// var finData = [];
+// for (var i = 0; i < finances.length; i++) {
+// finData.push(finances[i][1]);
+// }
+// console.table(finData);
+
+
 // declare variables
 var totalMonths = 0;
 var totalNet = 0;
@@ -98,6 +106,7 @@ var totalChange = 0;
 var avgChange = 0;
 
 // create a new empty array to hold all profit changes
+var allProfit = [];
 var allProfitChange = [];
 
 var greatestInDate;
@@ -110,26 +119,37 @@ var greatestDeProfit = 0;
 
 // The total number of months included in the dataset.
 var totalMonths = finances.length;
-// The net total amount of Profit/Losses over the entire period
+// calculation of total Net, profit change from month to month, total profit changes
 for (var i = 0; i < finances.length; i++) {
-    totalNet = totalNet + finances[i][1];
-  }
-//   console.log("Total: $" + totalNet);
+    totalNet = totalNet + finances[i][1]; // The net total amount of Profit/Losses over the entire period
+    allProfit.push(finances[i][1]);
+}
+
+// for (var i = 0; i < finances.length; i++) {
+//     allProfit.push(finances[i][1]);
+    // profitChange = allProfit[i++] - allProfit[i]; // calculate the profit change from month to month
+    // totalChange = totalChange + profitChange; // calculate the total profit changes
+    // allProfitChange.push(profitChange); // push all profit changes to the array allProfitChange
+
+//   }
+  console.log(allProfit);
 
 // The average of the changes in Profit/Losses over the entire period.
+avgChange = totalChange / (totalMonths - 1);
 
 // track what the total change in profits is from month to month 
-for (var i = 0; i < finances.length; i++) {
-    profitChange = finances[i++][1] - finances[i][1];
-    totalChange = totalChange + profitChange;
-  }
-// then find the average (totalChange/totalMonths-1)
-avgChange = totalChange / (totalMonths - 1)
+// for (var i = 0; i < finances.length; i++) {
+//     profitChange = finances[i++][1] - finances[i][1]; // calculate the profit change from month to month
+//     totalChange = totalChange + profitChange; // calculate the total profit changes
+//     allProfitChange.push(profitChange); // push all profit changes to array allProfitChange
+
+//   }
+//   console.log(allProfitChange);
 
 // The greatest increase in profits (date and amount) over the entire period.
-
+greatestInProfit = Math.max(allProfitChange);
 // The greatest decrease in losses (date and amount) over the entire period.
-
+greatestDeProfit = Math.min(allProfitChange);
 // When you open your code in the browser your resulting analysis should look similar to the following:
 // Financial Analysis
 // ----------------------------
