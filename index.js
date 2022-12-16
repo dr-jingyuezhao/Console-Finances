@@ -87,18 +87,19 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+// a dataset composed of arrays with two fields: Date and Profit/Losses.
 // To access an element of the multidimensional array, first use square brackets to access an element of the outer array that returns an inner array; and then use another square bracket to access the element of the inner array.
 
 // declare variables
 var totalMonths = 0;
 var totalNet = 0;
-var profitChange = 0;
+var profitChange = 0; // profit change is calculated as month2 - month1
 var avgChange = 0;
-var greatestIncrease = 0;
-var greatestDecrease = 0;
+var greatestInDate;
+var greatestInProfit = 0;
+var greatestDeDate;
+var greatestDeProfit = 0;
 
-
-// You have been given a dataset composed of arrays with two fields: Date and Profit/Losses.
 
 // Your task is to write JavaScript code that analyzes the records to calculate each of the following:
 
@@ -124,3 +125,32 @@ var greatestDecrease = 0;
 // Average  Change: $-2315.12
 // Greatest Increase in Profits: Feb-2012 ($1926159)
 // Greatest Decrease in Profits: Sep-2013 ($-2196167)
+
+// print the final analysis to the console using the given format
+// print the title of financial analysis to the console
+console.log("Financial Analysis"); 
+// display the dotted line
+console.log("----------------------------"); 
+// display the total number of months
+console.log("Total Months: " + totalMonths);
+// display the total net profit
+console.log("Total: $" + totalNet);
+// display the average of the changes in Profit/Losses over the entire period: netTotal/totalMonths (only display 2 digits like xxxxx.xx)
+console.log("Average Change: $" + avgChange);
+// display the date and number of the greatest increase in profits
+console.log(
+    "Greatest Increase in Profits: " +
+      greatestInDate +
+      " ($" +
+      greatestInProfit +
+      ")"
+  );
+// display the date and number of the greatest decrease in profits
+console.log(
+    "Greatest Decrease in Profits: " +
+      greatestDeDate +
+      " ($" +
+      greatestDeProfit +
+      ")"
+  );
+    
