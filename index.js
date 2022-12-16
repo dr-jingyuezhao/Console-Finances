@@ -122,29 +122,18 @@ var totalMonths = finances.length;
 // calculation of total Net, profit change from month to month, total profit changes
 for (var i = 0; i < finances.length; i++) {
     totalNet = totalNet + finances[i][1]; // The net total amount of Profit/Losses over the entire period
-    allProfit.push(finances[i][1]);
+    allProfit.push(finances[i][1]); // push all profit changes to the array allProfitChange
 }
 
-// for (var i = 0; i < finances.length; i++) {
-//     allProfit.push(finances[i][1]);
-    // profitChange = allProfit[i++] - allProfit[i]; // calculate the profit change from month to month
-    // totalChange = totalChange + profitChange; // calculate the total profit changes
-    // allProfitChange.push(profitChange); // push all profit changes to the array allProfitChange
-
-//   }
-  console.log(allProfit);
+for (var j = 0; j < allProfit.length - 1; j++) {
+    profitChange = allProfit[j+1] - allProfit[j]; // calculate the profit change from month to month
+    totalChange = totalChange + profitChange; // calculate the total profit changes
+    allProfitChange.push(profitChange); // push all profit changes to the array allProfitChange
+  }
+//   console.log(allProfitChange);
 
 // The average of the changes in Profit/Losses over the entire period.
 avgChange = totalChange / (totalMonths - 1);
-
-// track what the total change in profits is from month to month 
-// for (var i = 0; i < finances.length; i++) {
-//     profitChange = finances[i++][1] - finances[i][1]; // calculate the profit change from month to month
-//     totalChange = totalChange + profitChange; // calculate the total profit changes
-//     allProfitChange.push(profitChange); // push all profit changes to array allProfitChange
-
-//   }
-//   console.log(allProfitChange);
 
 // The greatest increase in profits (date and amount) over the entire period.
 greatestInProfit = Math.max(allProfitChange);
@@ -186,4 +175,3 @@ console.log(
       greatestDeProfit +
       ")"
   );
-    
