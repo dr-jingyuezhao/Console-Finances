@@ -124,18 +124,11 @@ for (var j = 0; j < allProfit.length - 1; j++) {
 // The average of the changes in Profit/Losses over the entire period.
 avgChange = totalChange / (totalMonths - 1);
 
+console.log(allProfitChange);
 // The greatest increase in profits (date and amount) over the entire period.
-greatestInProfit = Math.max(allProfitChange);
+greatestInProfit = Math.max(...allProfitChange);
 // The greatest decrease in losses (date and amount) over the entire period.
-greatestDeProfit = Math.min(allProfitChange);
-// When you open your code in the browser your resulting analysis should look similar to the following:
-// Financial Analysis
-// ----------------------------
-// Total Months: 25
-// Total: $2561231
-// Average  Change: $-2315.12
-// Greatest Increase in Profits: Feb-2012 ($1926159)
-// Greatest Decrease in Profits: Sep-2013 ($-2196167)
+greatestDeProfit = Math.min(...allProfitChange);
 
 // print the final analysis to the console using the given format
 // print the title of financial analysis to the console
