@@ -90,14 +90,6 @@ var finances = [
 // a dataset composed of arrays with two fields: Date and Profit/Losses.
 // To access an element of the multidimensional array, first use square brackets to access an element of the outer array that returns an inner array; and then use another square bracket to access the element of the inner array.
 
-// // test array push
-// var finData = [];
-// for (var i = 0; i < finances.length; i++) {
-// finData.push(finances[i][1]);
-// }
-// console.table(finData);
-
-
 // declare variables
 var totalMonths = 0;
 var totalNet = 0;
@@ -115,8 +107,6 @@ var greatestDeDate;
 var greatestDeProfit = 0;
 
 
-// Your task is to write JavaScript code that analyzes the records to calculate each of the following:
-
 // The total number of months included in the dataset.
 var totalMonths = finances.length;
 // calculation of total Net, profit change from month to month, total profit changes
@@ -130,7 +120,6 @@ for (var j = 0; j < allProfit.length - 1; j++) {
     totalChange = totalChange + profitChange; // calculate the total profit changes
     allProfitChange.push(profitChange); // push all profit changes to the array allProfitChange
   }
-//   console.log(allProfitChange);
 
 // The average of the changes in Profit/Losses over the entire period.
 avgChange = totalChange / (totalMonths - 1);
